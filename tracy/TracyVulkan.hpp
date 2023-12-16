@@ -61,9 +61,7 @@ namespace tracy
     Operation(vkResetQueryPool)
 
 #define LoadVkDeviceExtensionSymbols(Operation) \
-    Operation(vkGetCalibratedTimestampsEXT)
-
-#define LoadVkInstanceExtensionSymbols(Operation) \
+    Operation(vkGetCalibratedTimestampsEXT) \
     Operation(vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)
 
 #define LoadVkInstanceCoreSymbols(Operation) \
@@ -74,7 +72,6 @@ struct VkSymbolTable
 #define MAKE_PFN(name) PFN_##name name;
     LoadVkDeviceCoreSymbols(MAKE_PFN)
     LoadVkDeviceExtensionSymbols(MAKE_PFN)
-    LoadVkInstanceExtensionSymbols(MAKE_PFN)
     LoadVkInstanceCoreSymbols(MAKE_PFN)
 #undef MAKE_PFN
 };
@@ -460,7 +457,6 @@ private:
 
         LoadVkDeviceCoreSymbols( VK_LOAD_DEVICE_SYMBOL )
         LoadVkDeviceExtensionSymbols( VK_LOAD_DEVICE_SYMBOL )
-        LoadVkInstanceExtensionSymbols( VK_LOAD_INSTANCE_SYMBOL )
         LoadVkInstanceCoreSymbols( VK_LOAD_INSTANCE_SYMBOL )
 #undef VK_GET_DEVICE_SYMBOL
 #undef VK_LOAD_DEVICE_SYMBOL

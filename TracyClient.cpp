@@ -10,7 +10,6 @@
 //
 
 // Define TRACY_ENABLE to enable profiler.
-#include "meowpch.h"
 
 #include "common/TracySystem.cpp"
 
